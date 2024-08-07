@@ -47,7 +47,7 @@ void Button_Run(Button_st* button){
 	switch(button->buttonEventDescriptor.InInt){
 		case CLICK_EVENT_COMBINATION_CLICK: Button_Callback(button, BUTTON_EVENT_CLICK); button->buttonEventDescriptor.InInt = 0; break;
 		case CLICK_EVENT_COMBINATION_DOUBLE_CLICK: Button_Callback(button, BUTTON_EVENT_DOUBLE_CLICK); button->buttonEventDescriptor.InInt = 0; break;
-		case CLICK_EVENT_COMBINATION_HOLD: Button_Callback(button, BUTTON_EVENT_HOLD); button->buttonEventDescriptor.InInt = 0; break;
+		case CLICK_EVENT_COMBINATION_HOLD: Button_Callback(button, BUTTON_EVENT_HOLD); button->previousState = BUTTON_STATE_RELEASED; button->buttonEventDescriptor.InInt = 0; break;
 	}
 	
 }
