@@ -40,10 +40,6 @@ void Button_Run(Button_st* button){
 		button->buttonEventDescriptor.InStruct.waitClickTimeout = 1;
 	}
 	
-	if(button->getTick() > button->lastChangedDebounceStateTime + BUTTON_DESCR_RESET_TIMEOUT && button->currentState == BUTTON_STATE_RELEASED){
-		button->buttonEventDescriptor.InInt = 0;
-	}
-	
 	switch(button->buttonEventDescriptor.InInt){
 		case CLICK_EVENT_COMBINATION_CLICK: Button_Callback(button, BUTTON_EVENT_CLICK); button->buttonEventDescriptor.InInt = 0; break;
 		case CLICK_EVENT_COMBINATION_DOUBLE_CLICK: Button_Callback(button, BUTTON_EVENT_DOUBLE_CLICK); button->buttonEventDescriptor.InInt = 0; break;

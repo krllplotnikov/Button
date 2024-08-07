@@ -8,8 +8,6 @@
 #define BUTTON_CLICK_TRESHOLD_MS             50
 #define BUTTON_CLICK_TIMEOUT_MS              250
 #define BUTTON_HOLD_TRESHOLD_MS              500
-#define BUTTON_LONG_HOLD_TRESHOLD_MS         5000
-#define BUTTON_DESCR_RESET_TIMEOUT           500
 
 #define CLICK_EVENT_COMBINATION_CLICK        0b00100101
 #define CLICK_EVENT_COMBINATION_DOUBLE_CLICK 0b00001010
@@ -63,8 +61,6 @@ typedef struct{
 
 void Button_Init(Button_st* button, Button_GetLevel getLevel, GetTick getTick);
 void Button_Run(Button_st* button);
-void Button_Debounce(Button_st* button);
-void Button_CheckEvent(Button_st* button);
 
 void Button_Callback(Button_st* button, ButtonEvent_t event);
 
